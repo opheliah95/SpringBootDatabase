@@ -4,3 +4,8 @@
 # maven specific
 log/
 target/
+
+# spring build
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/

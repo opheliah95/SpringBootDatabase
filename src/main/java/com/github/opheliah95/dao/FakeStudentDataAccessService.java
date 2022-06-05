@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Repository
+@Repository("fakeDao") // served as repo
 public class FakeStudentDataAccessService implements StudentDao {
     // a fake database
     private static List<Student> DB = new ArrayList<>();

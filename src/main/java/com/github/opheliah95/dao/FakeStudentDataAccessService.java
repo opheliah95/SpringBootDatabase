@@ -29,9 +29,9 @@ public class FakeStudentDataAccessService implements StudentDao {
         return selectStudentById(id)
                 .map(
                 p ->{
-                    int indexToDelete = DB.indexOf(student);
-                    if(indexToDelete >=0) {
-                        DB.set(indexToDelete, student);
+                    int indexToUpdate = DB.indexOf(p);
+                    if(indexToUpdate >=0) {
+                        DB.set(indexToUpdate, new Student(id, student.getName()));
                         return 1;
                     }
                     return 0;
@@ -47,7 +47,7 @@ public class FakeStudentDataAccessService implements StudentDao {
         if (result.isEmpty()){
             return 0;
         }
-        DB.remove(result);
+        DB.remove(result.get());
         return 1;
     }
 

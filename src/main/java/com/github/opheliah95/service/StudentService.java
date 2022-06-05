@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -22,6 +24,18 @@ public class StudentService {
 
     public List<Student> selectAllStudent(){
         return studentDao.selectAllStudent();
+    }
+
+    public int deleteStudent(UUID id){
+        return studentDao.deleteStudent(id);
+    }
+
+    public int updateStudent(UUID id, Student student){
+        return studentDao.updateStudent(id, student);
+    }
+
+    public Optional<Student>selectStudentById(UUID id){
+        return studentDao.selectStudentById(id);
     }
 
 }

@@ -3,6 +3,7 @@ package com.github.opheliah95.dao;
 import com.github.opheliah95.model.Student;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface StudentDao {
@@ -16,5 +17,14 @@ public interface StudentDao {
 
     // template for retrival
     List<Student> selectAllStudent();
+
+    // template for update a student
+    int updateStudent(UUID id , Student student);
+
+    // template for delete student
+    int deleteStudent(UUID id);
+
+    // optional method that selects person by id
+    Optional<Student> selectStudentById(UUID id);
 
 }

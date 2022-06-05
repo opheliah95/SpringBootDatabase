@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository("fakeDao") // served as repo
@@ -21,5 +22,22 @@ public class FakeStudentDataAccessService implements StudentDao {
     @Override
     public List<Student> selectAllStudent() {
         return DB;
+    }
+
+    @Override
+    public int updateStudent(UUID id, Student student) {
+        return 0;
+    }
+
+    @Override
+    public int deleteStudent(UUID id) {
+        return 0;
+    }
+
+    @Override
+    public Optional<Student> selectStudentById(UUID id) {
+        return DB.stream()
+                .filter(student -> student.getId().equals(id))
+                .findFirst();
     }
 }

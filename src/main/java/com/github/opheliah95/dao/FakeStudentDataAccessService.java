@@ -1,11 +1,13 @@
 package com.github.opheliah95.dao;
 
 import com.github.opheliah95.model.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Repository
 public class FakeStudentDataAccessService implements StudentDao {
     // a fake database
     private static List<Student> DB = new ArrayList<>();

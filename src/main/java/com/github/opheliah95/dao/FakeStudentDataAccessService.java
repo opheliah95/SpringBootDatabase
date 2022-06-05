@@ -17,4 +17,9 @@ public class FakeStudentDataAccessService implements StudentDao {
         DB.add(new Student(id, student.getName()));
         return 1;
     }
+
+    @Override
+    public List<Student> selectAllStudent() {
+        return DB;
+    }
 }

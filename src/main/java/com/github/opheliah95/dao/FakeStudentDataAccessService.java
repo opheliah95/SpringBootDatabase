@@ -26,7 +26,19 @@ public class FakeStudentDataAccessService implements StudentDao {
 
     @Override
     public int updateStudent(UUID id, Student student) {
-        return 1;
+        return selectStudentById(id)
+                .map(
+                p ->{
+                    int indexToDelete = DB.indexOf(student);
+                    if(indexToDelete >=0) {
+                        DB.set(indexToDelete, student);
+                        return 1;
+                    }
+                    return 0;
+
+                })
+                .orElse(0);
+
     }
 
     @Override

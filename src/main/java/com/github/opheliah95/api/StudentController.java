@@ -30,13 +30,13 @@ public class StudentController {
         return studentService.selectAllStudent();
     }
 
-    @DeleteMapping
-    public int deleteStudent(UUID id){
+    @DeleteMapping(path="/{id}")
+    public int deleteStudent(@PathVariable("id") UUID id){
         return studentService.deleteStudent(id);
     }
 
-    @PutMapping
-    public int updateStudent(UUID id, Student student){
+    @PutMapping(path="/{id}")
+    public int updateStudent(@PathVariable("id") UUID id, @RequestBody Student student){
         return studentService.updateStudent(id, student);
     }
 

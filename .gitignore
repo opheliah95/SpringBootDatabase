@@ -1,0 +1,6 @@
+# intellj specific
+.idea/
+
+# maven specific
+log/
+target/
